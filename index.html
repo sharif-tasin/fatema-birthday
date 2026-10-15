@@ -1,1 +1,1265 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffe0ed">
+<title>Happy 21st Birthday, Fatema ❤️</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --pink: #ff6b9d;
+    --deep: #c42e69;
+    --light: #fff0f6;
+    --glass: rgba(255,255,255,.48);
+    --border: rgba(255,255,255,.8);
+    --text: #71314c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Noto Serif Bengali', serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at top left, #fff5fa 0%, transparent 45%),
+        radial-gradient(ellipse at bottom right, #ffb8d2 0%, transparent 55%),
+        linear-gradient(135deg, #ffe6ef, #ffd1e3, #fff0f6);
+    overflow-x: hidden;
+}
+
+body.locked {
+    overflow: hidden;
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    bottom: -40px;
+    animation: floatUp linear forwards;
+    opacity: 0;
+    user-select: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(.6);
+        opacity: 0;
+    }
+    15% { opacity: .75; }
+    85% { opacity: .6; }
+    100% {
+        transform: translateY(-115vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+.glass {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    box-shadow:
+        0 12px 45px rgba(180, 60, 110, .12),
+        inset 0 1px 1px rgba(255,255,255,.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+#loginScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: opacity .8s, visibility .8s;
+}
+
+#loginScreen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.login-card {
+    width: min(100%, 430px);
+    text-align: center;
+    padding: 38px 25px;
+    border-radius: 32px;
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(25px) scale(.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.crown {
+    font-size: 40px;
+    animation: crownFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes crownFloat {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-9px) rotate(5deg); }
+}
+
+.login-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(38px, 8vw, 54px);
+    color: var(--deep);
+    margin: 10px 0;
+}
+
+.login-subtitle {
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 22px;
+}
+
+.heart-input-wrap {
+    position: relative;
+    margin: 22px 0 10px;
+}
+
+#birthdayInput {
+    width: 100%;
+    height: 58px;
+    border: 1px solid rgba(196,46,105,.22);
+    background: rgba(255,255,255,.65);
+    border-radius: 18px;
+    outline: none;
+    padding: 12px 15px;
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 20px;
+    color: var(--deep);
+    caret-color: var(--pink);
+    transition: .3s;
+}
+
+#birthdayInput:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 4px rgba(255,107,157,.12);
+}
+
+.heart-hint {
+    font-size: 12px;
+    opacity: .7;
+    margin-top: 10px;
+}
+
+.primary-btn {
+    border: none;
+    color: white;
+    background: linear-gradient(135deg, #ff8bb5, #d9437e);
+    padding: 14px 25px;
+    border-radius: 30px;
+    box-shadow: 0 8px 22px rgba(217,67,126,.23);
+    transition: transform .25s, box-shadow .25s;
+    font-weight: 600;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(217,67,126,.32);
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#errorMessage {
+    min-height: 25px;
+    margin-top: 13px;
+    font-size: 13px;
+    color: #c42e69;
+}
+
+#mainSite {
+    position: relative;
+    z-index: 1;
+    display: none;
+}
+
+#mainSite.visible {
+    display: block;
+    animation: appear 1s ease;
+}
+
+.hero {
+    min-height: 100svh;
+    padding: 55px 20px 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-inner {
+    width: min(100%, 850px);
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 9px 19px;
+    border: 1px solid rgba(255,255,255,.85);
+    border-radius: 50px;
+    background: rgba(255,255,255,.35);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 27px;
+}
+
+.hero h1 {
+    font-family: 'Great Vibes', cursive;
+    color: var(--deep);
+    font-size: clamp(53px, 12vw, 105px);
+    line-height: 1.15;
+    font-weight: 400;
+    text-shadow: 0 5px 25px rgba(196,46,105,.12);
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 5vw, 34px);
+    margin: 12px 0;
+    color: #9d3b66;
+}
+
+.hero-description {
+    font-size: 15px;
+    line-height: 2;
+    max-width: 550px;
+    margin: 20px auto;
+}
+
+.age-circle {
+    width: 165px;
+    height: 165px;
+    margin: 32px auto;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(145deg, rgba(255,255,255,.7), rgba(255,182,208,.4));
+    border: 1px solid white;
+    box-shadow: 0 0 0 10px rgba(255,255,255,.12), 0 15px 50px rgba(196,46,105,.12);
+    animation: heartbeat 2.3s infinite;
+}
+
+.age-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 66px;
+    line-height: 1;
+    color: var(--deep);
+}
+
+.age-label {
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    12% { transform: scale(1.04); }
+    24% { transform: scale(1); }
+    36% { transform: scale(1.025); }
+    48% { transform: scale(1); }
+}
+
+.scroll-note {
+    font-size: 12px;
+    opacity: .65;
+    margin-top: 35px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(7px); }
+}
+
+.section {
+    padding: 65px 20px;
+    max-width: 1050px;
+    margin: auto;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading .small {
+    font-family: 'Great Vibes', cursive;
+    color: var(--pink);
+    font-size: 34px;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--deep);
+    font-size: clamp(26px, 6vw, 39px);
+    margin-top: 5px;
+}
+
+.section-heading p {
+    font-size: 13px;
+    margin-top: 12px;
+    line-height: 1.9;
+}
+
+.wish-card {
+    max-width: 700px;
+    margin: auto;
+    border-radius: 30px;
+    padding: 35px 25px;
+    text-align: center;
+}
+
+.wish-heart {
+    font-size: 45px;
+    display: inline-block;
+    animation: heartbeat 2s infinite;
+}
+
+.wish-card h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 45px;
+    color: var(--deep);
+    margin: 12px 0;
+}
+
+.wish-card p {
+    font-size: 14px;
+    line-height: 2.1;
+    margin-bottom: 20px;
+}
+
+.click-wish-btn {
+    margin-top: 8px;
+}
+
+#wishResult {
+    display: none;
+    margin-top: 28px;
+    padding: 22px 15px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.5);
+    animation: appear .6s ease;
+}
+
+#wishResult.show {
+    display: block;
+}
+
+#wishResult h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: var(--deep);
+}
+
+#wishResult p {
+    margin: 10px 0;
+}
+
+.wish-emoji {
+    font-size: 30px;
+    letter-spacing: 7px;
+    margin-top: 12px;
+}
+
+.letter-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.letter-card {
+    padding: 28px 23px;
+    border-radius: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.letter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 45px rgba(180,60,110,.17);
+}
+
+.letter-icon {
+    font-size: 35px;
+    margin-bottom: 14px;
+}
+
+.letter-card h3 {
+    font-size: 20px;
+    color: var(--deep);
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.letter-card .letter-desc {
+    font-size: 12px;
+    line-height: 1.9;
+    opacity: .75;
+    margin-bottom: 20px;
+}
+
+.letter-card button {
+    margin-top: auto;
+}
+
+.letter-card.dedicated h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+}
+
+.dedicated-label {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #a72c5f;
+    background: rgba(255,255,255,.55);
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 16px;
+}
+
+.letter-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(93,31,57,.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.letter-modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.letter-paper {
+    position: relative;
+    width: min(100%, 760px);
+    max-height: 88svh;
+    overflow-y: auto;
+    padding: 35px clamp(18px, 5vw, 45px);
+    border-radius: 22px;
+    background: linear-gradient(145deg, #fffdfb, #fff0f6);
+    box-shadow: 0 25px 90px rgba(70,20,40,.22);
+    transform: translateY(20px);
+    transition: transform .35s;
+    scrollbar-color: #ef9fbd transparent;
+    scrollbar-width: thin;
+}
+
+.letter-modal.open .letter-paper {
+    transform: translateY(0);
+}
+
+.paper-top {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f3c8d8;
+    margin-bottom: 25px;
+}
+
+.paper-top .paper-heart {
+    font-size: 30px;
+}
+
+.paper-top h2 {
+    font-family: 'Great Vibes', cursive;
+    color: var(--deep);
+    font-size: 43px;
+    margin-top: 8px;
+}
+
+.paper-content {
+    font-size: 15px;
+    line-height: 2.15;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.paper-content strong {
+    color: #a72c5f;
+}
+
+.close-modal {
+    position: sticky;
+    bottom: 0;
+    display: block;
+    margin: 25px auto 0;
+}
+
+.close-x {
+    position: sticky;
+    float: right;
+    top: 0;
+    z-index: 2;
+    border: none;
+    background: #f9d6e4;
+    color: #9d315e;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 22px;
+}
+
+.memory-box {
+    text-align: center;
+    padding: 32px 20px;
+    border-radius: 28px;
+}
+
+.memory-box .memory-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.memory-box p {
+    line-height: 2;
+    font-size: 14px;
+}
+
+.memory-box h3 {
+    font-family: 'Great Vibes', cursive;
+    color: var(--deep);
+    font-size: 37px;
+    margin-bottom: 10px;
+}
+
+.final-wish {
+    text-align: center;
+    padding: 75px 20px 50px;
+}
+
+.final-wish .final-heart {
+    font-size: 48px;
+    animation: heartbeat 2s infinite;
+}
+
+.final-wish h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(44px, 9vw, 75px);
+    color: var(--deep);
+    margin: 15px 0;
+}
+
+.final-wish p {
+    line-height: 2;
+    font-size: 14px;
+}
+
+.author {
+    text-align: center;
+    padding: 35px 15px 28px;
+    border-top: 1px solid rgba(196,46,105,.13);
+    margin-top: 25px;
+}
+
+.author-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    opacity: .65;
+    margin-bottom: 12px;
+}
+
+.author-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(17px, 4vw, 25px);
+    letter-spacing: 2px;
+    color: var(--deep);
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.author-heart {
+    margin-top: 12px;
+    font-size: 17px;
+}
+
+.confetti {
+    position: fixed;
+    z-index: 500;
+    pointer-events: none;
+    top: -20px;
+    animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(110vh) rotate(800deg);
+        opacity: 0;
+    }
+}
+
+.toast {
+    position: fixed;
+    z-index: 600;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    padding: 12px 20px;
+    background: rgba(255,255,255,.9);
+    color: var(--deep);
+    border-radius: 30px;
+    font-size: 13px;
+    box-shadow: 0 8px 25px rgba(100,30,60,.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    max-width: 90%;
+    text-align: center;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+@media (max-width: 650px) {
+    .letter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 40px;
+    }
+
+    .section {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .login-card {
+        padding: 32px 20px;
+    }
+
+    .letter-card {
+        padding: 25px 21px;
+    }
+
+    .paper-content {
+        font-size: 14px;
+        line-height: 2;
+    }
+
+    .letter-paper {
+        padding-top: 22px;
+        padding-bottom: 25px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body class="locked">
+
+<div id="particles" aria-hidden="true"></div>
+
+<!-- BIRTHDAY DATE LOGIN -->
+<section id="loginScreen">
+    <div class="login-card glass">
+        <div class="crown">👑</div>
+
+        <h1 class="login-title">A Little Surprise</h1>
+
+        <p class="login-subtitle">
+            এই ছোট্ট সারপ্রাইজটা তোমার জন্য, ফাতেমা! 💗<br>
+            ভেতরে ঢোকার আগে তোমার জন্মদিনের তারিখটা বলো।
+        </p>
+
+        <form id="birthdayForm" autocomplete="off">
+            <div class="heart-input-wrap">
+                <input
+                    id="birthdayInput"
+                    type="password"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    maxlength="8"
+                    placeholder="DDMMYYYY"
+                    aria-label="Birthday date"
+                    required
+                >
+            </div>
+
+            <p class="heart-hint">
+                💗 জন্মদিনের তারিখ লিখো: দিন, মাস ও বছর
+            </p>
+
+            <button class="primary-btn login-btn" type="submit">
+                Unlock My Surprise ♡
+            </button>
+
+            <p id="errorMessage" role="status" aria-live="polite"></p>
+        </form>
+
+        <p style="font-size:11px; opacity:.6; margin-top:15px;">
+            Made with a little love & lots of memories ♡
+        </p>
+    </div>
+</section>
+
+<!-- MAIN WEBSITE -->
+<main id="mainSite">
+
+    <header class="hero">
+        <div class="hero-inner">
+
+            <div class="eyebrow">✧ A SPECIAL DAY · 16 OCTOBER ✧</div>
+
+            <h1>Happy Birthday</h1>
+
+            <h2>Fatema Khanom Rima</h2>
+
+            <p class="hero-description">
+                কিছু মানুষ জীবনের গল্পে থেকে যায় স্মৃতি হয়ে,
+                কিছু দিন থেকে যায় বিশেষ হয়ে।
+                আজকের দিনটা তোমার—তাই তোমার জন্য এই ছোট্ট আয়োজন। ❤️
+            </p>
+
+            <div class="age-circle">
+                <span class="age-number">21</span>
+                <span class="age-label">Beautiful Years ♡</span>
+            </div>
+
+            <button class="primary-btn" onclick="scrollToSection('clickWish')">
+                A Little Wish for You 💌
+            </button>
+
+            <p class="scroll-note">SCROLL DOWN FOR YOUR SURPRISE ↓</p>
+        </div>
+    </header>
+
+    <!-- CLICK WISH -->
+    <section class="section" id="clickWish">
+
+        <div class="section-heading">
+            <div class="small">A wish from the heart</div>
+            <h2>A Little Birthday Wish</h2>
+            <p>এই বাটনটা শুধু তোমার জন্য। একবার ক্লিক করে দেখো! 💗</p>
+        </div>
+
+        <div class="wish-card glass">
+            <div class="wish-heart">💖</div>
+
+            <h3>Dear Fatema...</h3>
+
+            <p>
+                আজকের দিনটা তোমার জীবনে নিয়ে আসুক নতুন আশা,
+                সুন্দর কিছু মুহূর্ত আর অসংখ্য ভালো থাকার কারণ।
+                তোমার প্রতিটি স্বপ্ন একদিন বাস্তব হয়ে উঠুক।
+            </p>
+
+            <button class="primary-btn click-wish-btn" id="clickWishBtn">
+                Click Your Wish 💝
+            </button>
+
+            <div id="wishResult">
+                <h3>Happy 21st Birthday! 🎂</h3>
+
+                <p>
+                    May Allah bless your life with happiness,
+                    peace, success and countless beautiful moments.
+                    May every sincere prayer of yours be answered.
+                </p>
+
+                <p>
+                    তুমি ভালো থেকো, সুস্থ থেকো, নিজের স্বপ্নগুলো
+                    পূরণ করো আর সবসময় নিজের ওপর বিশ্বাস রেখো। ❤️
+                </p>
+
+                <div class="wish-emoji">🎂 💗 🌸 ✨</div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- LETTERS -->
+    <section class="section" id="letters">
+
+        <div class="section-heading">
+            <div class="small">Words that stayed unwritten</div>
+            <h2>Two Letters, Two Feelings</h2>
+            <p>
+                কিছু কথা চিঠিতেই সুন্দর। সময় নিয়ে পড়ো। 💌
+            </p>
+        </div>
+
+        <div class="letter-grid">
+
+            <!-- FIRST LETTER -->
+            <article class="letter-card glass">
+                <div class="letter-icon">💌</div>
+
+                <h3>একটি জন্মদিনের চিঠি</h3>
+
+                <p class="letter-desc">
+                    পুরোনো স্মৃতি, দীর্ঘদিনের পরিচয়, শুভকামনা
+                    আর আগামী দিনের জন্য কিছু কথা।
+                </p>
+
+                <button class="primary-btn" onclick="openLetter('birthdayLetter')">
+                    Open Letter ♡
+                </button>
+            </article>
+
+            <!-- SECOND LETTER -->
+            <article class="letter-card glass dedicated">
+                <div class="letter-icon">🤍</div>
+
+                <div class="dedicated-label">
+                    DEDICATED FOR SOMEONE {NOT FOR YOU}
+                </div>
+
+                <h3>একটি বিশেষ চিঠি</h3>
+
+                <p class="letter-desc">
+                    কিছু অনুভূতি, কিছু স্মৃতি আর একজন প্রিয় মানুষকে
+                    স্মরণ করে লেখা কয়েকটি কথা।
+                </p>
+
+                <button class="primary-btn" onclick="openLetter('dedicatedLetter')">
+                    Open Dedicated Letter 🤍
+                </button>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- MEMORY SECTION -->
+    <section class="section">
+        <div class="memory-box glass">
+            <div class="memory-icon">🌷</div>
+
+            <h3>Some Memories Never Fade</h3>
+
+            <p>
+                Class Six থেকে শুরু হওয়া পরিচয়,<br>
+                কতগুলো বছর, কতগুলো স্মৃতি আর সময়ের সঙ্গে বদলে যাওয়া জীবন।<br>
+                কিছু স্মৃতি হয়তো পুরোনো হয়ে যায়,<br>
+                কিন্তু সেগুলোর মূল্য সবসময় একই রকম থাকে। ❤️
+            </p>
+        </div>
+    </section>
+
+    <!-- FINAL WISH -->
+    <section class="final-wish">
+        <div class="final-heart">💗</div>
+
+        <h2>Once Again, Happy Birthday!</h2>
+
+        <p>
+            শুভ ২১তম জন্মদিন, ফাতেমা খানম রিমা।<br>
+            তোমার আগামী দিনগুলো সুন্দর হোক।<br>
+            আল্লাহ তোমাকে সুস্থ রাখুন, ভালো রাখুন এবং জীবনে সফল করুন। 🤍
+        </p>
+
+        <div style="margin-top:25px;">
+            <button class="primary-btn" onclick="celebrate()">
+                One Last Surprise ✨
+            </button>
+        </div>
+    </section>
+
+    <!-- AUTHOR AT THE VERY BOTTOM -->
+    <footer class="author">
+        <p class="author-label">CREATED WITH LOVE BY</p>
+
+        <p class="author-name">
+            SHARIF HOSSAIN TASIN
+        </p>
+
+        <div class="author-heart">♡</div>
+    </footer>
+
+</main>
+
+<!-- LETTER MODAL -->
+<div class="letter-modal" id="letterModal" role="dialog" aria-modal="true" aria-label="Birthday letter">
+
+    <div class="letter-paper">
+
+        <button class="close-x" id="closeX" aria-label="Close letter">×</button>
+
+        <div class="paper-top">
+            <div class="paper-heart">💌</div>
+            <h2 id="paperTitle">A Letter for You</h2>
+        </div>
+
+        <div class="paper-content" id="paperContent"></div>
+
+        <button class="primary-btn close-modal" id="closeLetterBtn">
+            Close Letter ♡
+        </button>
+
+    </div>
+
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+
+/* ===================================
+   BACKGROUND FLOATING HEARTS
+=================================== */
+
+const particlesContainer = document.getElementById("particles");
+
+const heartSymbols = ["♡", "♥", "💕", "💗", "✨", "🌸"];
+
+function createFloatingHeart() {
+    const heart = document.createElement("span");
+
+    heart.className = "particle";
+    heart.textContent = heartSymbols[
+        Math.floor(Math.random() * heartSymbols.length)
+    ];
+
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.fontSize = (12 + Math.random() * 19) + "px";
+    heart.style.animationDuration = (9 + Math.random() * 12) + "s";
+
+    particlesContainer.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 22000);
+}
+
+setInterval(createFloatingHeart, 650);
+
+
+/* ===================================
+   BIRTHDAY DATE LOGIN
+   CORRECT DATE: 16 OCTOBER 2005
+=================================== */
+
+const birthdayForm = document.getElementById("birthdayForm");
+const birthdayInput = document.getElementById("birthdayInput");
+const errorMessage = document.getElementById("errorMessage");
+const loginScreen = document.getElementById("loginScreen");
+const mainSite = document.getElementById("mainSite");
+
+birthdayForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const enteredDate = birthdayInput.value.replace(/\D/g, "");
+
+    if (enteredDate === "16102005") {
+
+        errorMessage.textContent = "Correct! Opening your surprise... 💗";
+
+        launchConfetti(60);
+
+        setTimeout(() => {
+            loginScreen.classList.add("hidden");
+            mainSite.classList.add("visible");
+            document.body.classList.remove("locked");
+
+            setTimeout(() => {
+                loginScreen.style.display = "none";
+            }, 850);
+
+            showToast("Welcome to your little birthday surprise! 💗");
+
+        }, 900);
+
+    } else {
+
+        errorMessage.textContent =
+            "উফ! তারিখটা ঠিক হয়নি। আবার চেষ্টা করো, ফাতেমা! 💗";
+
+        birthdayInput.value = "";
+
+        birthdayInput.animate([
+            { transform: "translateX(0)" },
+            { transform: "translateX(-7px)" },
+            { transform: "translateX(7px)" },
+            { transform: "translateX(-5px)" },
+            { transform: "translateX(0)" }
+        ], {
+            duration: 300
+        });
+    }
+});
+
+
+/* ===================================
+   CLICK WISH
+=================================== */
+
+const clickWishBtn = document.getElementById("clickWishBtn");
+const wishResult = document.getElementById("wishResult");
+
+clickWishBtn.addEventListener("click", function() {
+
+    wishResult.classList.toggle("show");
+
+    if (wishResult.classList.contains("show")) {
+
+        clickWishBtn.textContent = "Your Wish Is Here 💖";
+
+        launchConfetti(45);
+
+        wishResult.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+
+    } else {
+
+        clickWishBtn.textContent = "Click Your Wish 💝";
+    }
+});
+
+
+/* ===================================
+   FIRST LETTER — ORIGINAL TEXT
+=================================== */
+
+const birthdayLetter = `ফাতেমা,
+শুভ জন্মদিন! ❤️
+আজ ১৬ অক্টোবর, তোমার জীবনের আরও একটা নতুন অধ্যায় শুরু হলো। দেখতে দেখতে ২১ বছরে পা দিয়ে দিলে! ভাবতেই কেমন যেন লাগে, সময়টা কত দ্রুত চলে যায়। মনে হয়, এই তো সেদিন ক্লাস সিক্সে একসঙ্গে পড়তাম, আজ এতগুলো বছর পেরিয়ে গেছে।
+আজ তোমার জন্মদিনে পুরোনো দিনগুলোর কথা একটু মনে পড়ছে। আজিজ স্যারের কাছে একসঙ্গে পড়া থেকে শুরু করে রেডিয়ান কোচিং সেন্টার, তারপর এসএসসি , কত স্মৃতি জমে আছে এই সময়টার সঙ্গে! তখন হয়তো বুঝতাম না, জীবনের এই সাধারণ দিনগুলোই একসময় এত সুন্দর স্মৃতি হয়ে থাকবে। সময়ের সঙ্গে অনেক কিছু বদলে গেছে, বদলেছে আমাদের জীবন, পরিস্থিতি, চিন্তাভাবনা; কিন্তু পেছনে ফেলে আসা দিনগুলোর স্মৃতিগুলো তো আর বদলে যায় না।
+আমাদের মধ্যেও এমন কিছু সময় এসেছে, যখন দূরত্ব তৈরি হয়েছে, কথা বন্ধ হয়েছে, এমনকি একসময় আনফ্রেন্ড হওয়ার ঘটনাও ঘটেছে { that was not my fault . I was always right } তবে জীবনে সবকিছু সব সময় নিজের ইচ্ছামতো হয় না। কিছু ঘটনা ঘটে যায়, কিছু ভুল-বোঝাবুঝি তৈরি হয়। সেসব নিয়ে আজ আর কিছু বলতে চাই না। অতীতকে অতীতের জায়গায় রেখেই সামনে এগিয়ে যাওয়াটা বোধহয় ভালো।
+আমার কাছে ভালো লাগার বিষয় হলো, এত কিছুর পরও আজ আমরা এমন একটা অবস্থানে আছি, যেখানে কোনো দ্বিধা বা অস্বস্তি ছাড়াই কথা বলতে পারি। আমার মনে হয়, এটাই অনেক কিছু। কারণ সময়ের সঙ্গে সম্পর্কের ধরন বদলাতে পারে, কিন্তু পুরোনো পরিচয় আর স্মৃতিগুলোর একটা আলাদা মূল্য সব সময়ই থেকে যায়।
+যাই হোক, আজ তোমার বিশেষ দিন। তাই পুরোনো কথা বাদ দিয়ে তোমার জন্য কিছু ভালো চাওয়ার কথাই বলি।
+মন থেকে দোয়া করি, তুমি জীবনে অনেক বড় হও, নিজের যোগ্যতায় ভালো একটা অবস্থানে পৌঁছাও এবং এমন কিছু করো, যা নিয়ে একদিন নিজের কাছেই গর্ব করতে পারবে। তোমার স্বপ্নগুলো পূরণ হোক, পরিশ্রম সার্থক হোক, আর জীবনের প্রতিটি গুরুত্বপূর্ণ সিদ্ধান্তে সঠিক পথটা খুঁজে পাও। জীবনে সফল হওয়ার পাশাপাশি একজন ভালো নারী হিসেবেও নিজেকে গড়ে তোলো।
+সব সময় হয়তো জীবন তোমার পরিকল্পনামতো চলবে না। কখনো কঠিন সময় আসবে, কখনো নিজের ওপর বিশ্বাস রাখাটাও কঠিন মনে হবে। তবুও যেন নিজের ওপর বিশ্বাস হারিয়ে না ফেলো। ধৈর্য ধরে চেষ্টা করে যেয়ো। মনে রেখো, জীবনে ভালো কিছু অর্জন করতে সময় লাগলেও আন্তরিক চেষ্টা কখনোই মূল্যহীন নয়।
+তোমার জীবনে এমন মানুষ থাকুক, যারা তোমাকে সত্যিকার অর্থে বুঝবে, তোমার ভালো চাইবে এবং কঠিন সময়েও পাশে থাকবে। তোমার বাবা ভাই বোন ভালো থাকুক, তুমি সুস্থ থাকো, মানসিক শান্তিতে থাকো এবং প্রতিদিনের ছোট ছোট আনন্দগুলো উপভোগ করতে শেখো।
+আর একটা কথা, জীবনের এই নতুন বয়সে এসে নিজের জন্যও একটু সময় রেখো। শুধু ভবিষ্যৎ নিয়ে চিন্তা করতে গিয়ে বর্তমানের সুন্দর মুহূর্তগুলো হারিয়ে ফেলো না। অনেক দূর এগিয়ে যাও, নিজের স্বপ্ন পূরণ করো, তবে সেই পথচলায় নিজের ভালো থাকাটাকেও গুরুত্ব দিয়ো।
+ক্লাস সিক্স থেকে শুরু হওয়া এই পরিচয়ের সঙ্গে যে এত বছরের স্মৃতি জড়িয়ে যাবে, সেটা তখন ভাবিনি। জানি না, ভবিষ্যতে আমাদের জীবন কোন দিকে যাবে, কে কতটা ব্যস্ত হয়ে পড়ব কিংবা যোগাযোগ কতটা থাকবে। তবে চাই, তোমার জীবনের পরবর্তী দিনগুলো আরও সুন্দর হোক। তুমি তোমার কাঙ্ক্ষিত লক্ষ্যে পৌঁছাও এবং জীবনের প্রতিটি ধাপে আরও পরিণত, আত্মবিশ্বাসী ও সফল হয়ে ওঠো।
+শুভ ২১তম জন্মদিন, ফাতেমা! 🎂❤️
+তোমার জন্য অনেক অনেক শুভকামনা ও দোয়া রইল। আল্লাহ তোমার জীবনে বরকত দান করুন, তোমার নেক ইচ্ছাগুলো পূরণ করুন এবং তোমাকে জীবনের প্রতিটি ক্ষেত্রে সফলতা ও শান্তি দান করুন।
+ভালো থেকো, নিজের যত্ন নিয়ো, আর জীবনে অনেক দূর এগিয়ে যেয়ো।
+ইতি,
+তোমার দীর্ঘদিনের পরিচিত , আনফ্রেন্ড হওয়া এক বন্ধু
+শরিফ ।`;
+
+
+/* ===================================
+   SECOND LETTER — DEDICATED LETTER
+=================================== */
+
+const dedicatedLetter = `ফাতেমা,
+এই চিঠিটা অন্য জনকে dedicate করে লেখা । আশা করি জানেন কার কথা বলছি। জানি, এই সময়টা কতটা কঠিন, সেটা হয়তো কোনো কথার মাধ্যমেই বোঝানো সম্ভব নয়। আন্টির কথা মনে পড়লে এখনো বিশ্বাস হতে চায় না যে, তিনি আর এই পৃথিবীতে নেই। আন্টি আমাকে যে পরিমাণ আদর করতেন, সেই স্মৃতিগুলো আমার কাছেও অনেক মূল্যবান। তাঁর স্নেহ আর ভালোবাসার কথা মনে পড়লে মনটা খারাপ হয়ে যায়। বুক চিপ দিয়ে উঠে। একজন introvert হিসেবে হয়ত প্রকাশ করতে পারি না।
+জীবনের কিছু কষ্ট আছে, যা কোনো সান্ত্বনার কথাতেই দূর হয় না। তবুও একটা কথাই বলতে চাই, নিজেকে শক্ত রেখো । জানি, মাকে হারানোর শূন্যতা কখনো পূরণ হওয়ার নয়। তবে আন্টির ভালোবাসা, তাঁর স্মৃতি আর তাঁর শেখানো বিষয়গুলো সব সময় নিজের কাছে ধারণ করার চেষ্টা করবা ।
+আল্লাহ যেন আন্টিকে ক্ষমা করে দেন এবং তাঁকে জান্নাতুল ফেরদৌস নসিব করেন।
+দোয়া করি, ধীরে ধীরে এই শোক কাটিয়ে উঠতে পারো । নিজের যত্ন নিয়ো । এই লেটার টি শুধু আন্টিকে dedicate করে লিখা।
+আল্লাহ আন্টিকে জান্নাতবাসী করুন। আমিন। 🤍`;
+
+
+/* ===================================
+   LETTER OPEN / CLOSE
+=================================== */
+
+const letterModal = document.getElementById("letterModal");
+const paperTitle = document.getElementById("paperTitle");
+const paperContent = document.getElementById("paperContent");
+const closeX = document.getElementById("closeX");
+const closeLetterBtn = document.getElementById("closeLetterBtn");
+
+let lastFocusedElement = null;
+
+function openLetter(letterType) {
+
+    lastFocusedElement = document.activeElement;
+
+    if (letterType === "birthdayLetter") {
+
+        paperTitle.textContent = "A Letter for Fatema 💗";
+        paperContent.textContent = birthdayLetter;
+
+    } else if (letterType === "dedicatedLetter") {
+
+        paperTitle.textContent = "Dedicated for Someone 🤍";
+        paperContent.textContent = dedicatedLetter;
+
+    } else {
+        return;
+    }
+
+    letterModal.classList.add("open");
+    document.body.style.overflow = "hidden";
+
+    letterModal.scrollTop = 0;
+    document.querySelector(".letter-paper").scrollTop = 0;
+
+    closeX.focus();
+}
+
+function closeLetter() {
+
+    letterModal.classList.remove("open");
+    document.body.style.overflow = "";
+
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+    }
+}
+
+closeX.addEventListener("click", closeLetter);
+closeLetterBtn.addEventListener("click", closeLetter);
+
+letterModal.addEventListener("click", function(event) {
+    if (event.target === letterModal) {
+        closeLetter();
+    }
+});
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape" && letterModal.classList.contains("open")) {
+        closeLetter();
+    }
+});
+
+
+/* ===================================
+   CONFETTI CELEBRATION
+=================================== */
+
+function launchConfetti(amount = 70) {
+
+    const symbols = ["💗", "💕", "✨", "🌸", "♥", "🎉", "💖"];
+
+    for (let i = 0; i < amount; i++) {
+
+        setTimeout(() => {
+
+            const item = document.createElement("span");
+
+            item.className = "confetti";
+            item.textContent = symbols[
+                Math.floor(Math.random() * symbols.length)
+            ];
+
+            item.style.left = Math.random() * 100 + "vw";
+            item.style.fontSize = (12 + Math.random() * 19) + "px";
+            item.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+            document.body.appendChild(item);
+
+            setTimeout(() => item.remove(), 7500);
+
+        }, Math.random() * 600);
+    }
+}
+
+
+/* ===================================
+   FINAL SURPRISE
+=================================== */
+
+function celebrate() {
+
+    launchConfetti(120);
+
+    showToast("May Allah bless you always, Fatema! ❤️");
+
+    const button = document.querySelector(".final-wish .primary-btn");
+
+    button.textContent = "Made with Love for You 💗";
+
+    setTimeout(() => {
+        button.textContent = "One Last Surprise ✨";
+    }, 3500);
+}
+
+
+/* ===================================
+   NAVIGATION
+=================================== */
+
+function scrollToSection(id) {
+
+    const section = document.getElementById(id);
+
+    if (section) {
+        section.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+
+/* ===================================
+   TOAST NOTIFICATION
+=================================== */
+
+let toastTimer;
+
+function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000);
+}
+
+</script>
+
+</body>
+</html>
